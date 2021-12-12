@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import "./MainFooter.scss";
 
-const MainFooter = ({}) => {
+const MainFooter = () => {
   return (
     <footer className="main-footer">
       <a className="main-footer-link" href="tel:+972-77-7777777">

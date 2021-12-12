@@ -1,6 +1,6 @@
 import React from "react";
 import "./MainHeader.scss";
-const MainHeader = ({}) => {
+const MainHeader = () => {
   return <header className="main-header" />;
 };
 

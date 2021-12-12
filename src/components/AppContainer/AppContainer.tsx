@@ -3,7 +3,7 @@ import { MainFooter } from "..";
 import { MainHeader } from "../MainHeader";
 import { MainNavBar } from "../MainNavBar";
 
-const HomePage = ({}) => {
+const HomePage = () => {
   return (
     <div>
       <MainHeader />
