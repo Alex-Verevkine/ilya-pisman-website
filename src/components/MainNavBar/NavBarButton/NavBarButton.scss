@@ -1,0 +1,25 @@
+@use "../../../variables.scss" as *;
+
+.nav-bar-button {
+  height: 48px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: $color-trans;
+  &:focus,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
+  color: $black-base;
+  font-family: Montserrat;
+  font-weight: 700;
+
+  &:hover {
+    text-decoration: none;
+    color: $light-gray-base;
+    transition: $color-trans;
+  }
+}

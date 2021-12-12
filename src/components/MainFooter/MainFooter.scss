@@ -1,0 +1,28 @@
+@use "../../variables.scss" as *;
+
+.main-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 24px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: Montserrat;
+}
+
+.main-footer-link {
+  transition: $color-trans;
+  color: $black-base;
+  &:focus,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: $light-gray-base;
+    transition: $color-trans;
+  }
+}

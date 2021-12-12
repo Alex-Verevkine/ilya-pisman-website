@@ -1,3 +1,5 @@
+@use "./variables.scss" as *;
+
 .App {
   text-align: center;
 }
@@ -35,4 +37,23 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+*::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+*::-webkit-scrollbar-track {
+  background: $white-base;
+}
+
+/* Handle */
+*::-webkit-scrollbar-thumb {
+  background: $black-base;
+}
+
+/* Handle on hover */
+*::-webkit-scrollbar-thumb:hover {
+  background: $black-base;
 }
