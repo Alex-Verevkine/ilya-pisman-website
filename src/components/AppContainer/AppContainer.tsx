@@ -1,4 +1,3 @@
-import { title } from "process";
 import React from "react";
 import { MainFooter } from "..";
 import { MainHeader } from "../MainHeader";
