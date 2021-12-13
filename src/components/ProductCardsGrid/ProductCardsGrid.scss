@@ -1,0 +1,10 @@
+.product-cards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 96px 48px;
+  gap: 24px;
+  max-width: 1980px;
+  margin: 0 auto;
+}

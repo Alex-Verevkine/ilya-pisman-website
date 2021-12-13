@@ -1,7 +1,16 @@
+@use "../../variables.scss" as *;
+
 .nav-bar {
   display: flex;
   flex-direction: row;
+  grid-gap: 48px;
   gap: 48px;
   justify-content: flex-end;
-  margin: 24px;
+  position: fixed;
+  padding: 24px;
+  top: 0px;
+  width: 100%;
+  left: 0px;
+  background-color: $white-base;
+  z-index: 1;
 }
