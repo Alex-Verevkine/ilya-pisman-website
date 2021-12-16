@@ -1,0 +1,41 @@
+@use "../../../variables.scss" as *;
+
+.nav-bar-mobile {
+  padding: 12px;
+  &-open {
+    [aria-label="nav-bar-mobile-hamburger"] {
+      z-index: 3;
+      & > div {
+        background: $white-base !important;
+      }
+    }
+  }
+}
+
+.nav-bar-mobile-floating-menu {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  min-height: 100vh;
+  min-width: 100vw;
+  z-index: 2;
+  background-color: rgba($color: $black-base, $alpha: 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  &.entering {
+    opacity: 1;
+  }
+  &.entered {
+    opacity: 1;
+  }
+  &.exiting {
+    opacity: 0;
+  }
+  &.exited {
+    opacity: 0;
+    z-index: -1;
+  }
+}

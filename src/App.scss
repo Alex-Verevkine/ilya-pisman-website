@@ -57,3 +57,14 @@
 *::-webkit-scrollbar-thumb:hover {
   background: $black-base;
 }
+
+[data-font-size="small"] {
+  font-size: $small-font-size;
+}
+[data-font-size="medium"] {
+  font-size: $medium-font-size;
+}
+
+[data-font-size="large"] {
+  font-size: $large-font-size;
+}

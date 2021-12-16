@@ -1,13 +1,46 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { noop } from "lodash";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./NavBarButton.scss";
-import { NavBarButtonProps } from "./NavBarButton.types";
+import { NavBarButtonFC, NavBarButtonProps } from "./NavBarButton.types";
 
-const NavBarButton = ({ children }: NavBarButtonProps) => {
+const NavBarButton: NavBarButtonFC = ({
+  to,
+  scrollToRef,
+  children,
+  color,
+  onClick = noop,
+  fontSize = "small"
+}: NavBarButtonProps) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleCLick = () => {
+    onClick();
+    if (location.pathname !== to) {
+      navigate(to, {
+        state: {
+          scrollToRef
+        }
+      });
+    }
+
+    setTimeout(() => {
+      scrollToRef?.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+      });
+    });
+  };
   return (
-    <Link to="/dashboard" className="nav-bar-button">
+    <div
+      data-font-size={fontSize}
+      color={color}
+      onClick={handleCLick}
+      className="nav-bar-button"
+    >
       {children}
-    </Link>
+    </div>
   );
 };
 

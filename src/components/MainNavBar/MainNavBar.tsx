@@ -1,13 +1,17 @@
 import React from "react";
 import "./MainNavBar.scss";
-import { NavBarButton } from "./NavBarButton";
-const MainNavBar = () => {
+import { isDesktop } from "react-device-detect";
+import { NavBarDesktop } from "./NavBarDesktop";
+import { NavBarMobile } from "./NavBarMobile";
+import { MainNavBarFC, MainNavBarProps } from "./MainNavBar.types";
+
+const MainNavBar: MainNavBarFC = ({ options = [] }: MainNavBarProps) => {
+  const NavBarComponent = isDesktop ? NavBarDesktop : NavBarMobile;
+
   return (
-    <nav className="nav-bar">
-      <NavBarButton>Home</NavBarButton>
-      <NavBarButton>Portfolio</NavBarButton>
-      <NavBarButton>About</NavBarButton>
-    </nav>
+    <div className="nav-bar">
+      <NavBarComponent options={options} />
+    </div>
   );
 };
 

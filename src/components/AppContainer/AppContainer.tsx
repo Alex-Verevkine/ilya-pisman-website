@@ -1,49 +1,46 @@
-import React from "react";
-import { MainFooter } from "..";
-import { MainHeader } from "../MainHeader";
+import React, { useRef } from "react";
+import { Routes, Route } from "react-router-dom";
+import { AboutPage, MainFooter } from "..";
+import { LandingPage } from "../LandingPage";
 import { MainNavBar } from "../MainNavBar";
-import { ProductCardsGrid } from "../ProductCardsGrid";
 
-const HomePage = () => {
+const HomePage = (props: any) => {
+  const mainHeaderRef = useRef<HTMLHeadElement>(null);
+  const productsCardsGridRef = useRef<HTMLDivElement>(null);
   return (
     <div>
-      <MainNavBar />
+      <MainNavBar
+        options={[
+          {
+            to: "/",
+            scrollToRef: mainHeaderRef,
+            text: "Home"
+          },
+          {
+            to: "/",
+            scrollToRef: productsCardsGridRef,
+            text: "Portfolio"
+          },
+          {
+            to: "/about",
+            text: "About"
+          }
+        ]}
+      />
       <div style={{ marginTop: "72px" }}>
-        <MainHeader />
-        <ProductCardsGrid
-          products={[
-            {
-              title: "test product 1",
-              imageUrl:
-                "https://static.wixstatic.com/media/3528b1_d61b1bfd441c4477a456b428f2f77f25~mv2.jpg/v1/fill/w_415,h_396,q_90/3528b1_d61b1bfd441c4477a456b428f2f77f25~mv2.jpg"
-            },
-            {
-              title: "test product 1",
-              imageUrl:
-                "https://static.wixstatic.com/media/3528b1_d61b1bfd441c4477a456b428f2f77f25~mv2.jpg/v1/fill/w_415,h_396,q_90/3528b1_d61b1bfd441c4477a456b428f2f77f25~mv2.jpg"
-            },
-            {
-              title: "test product 1",
-              imageUrl:
-                "https://static.wixstatic.com/media/3528b1_d61b1bfd441c4477a456b428f2f77f25~mv2.jpg/v1/fill/w_415,h_396,q_90/3528b1_d61b1bfd441c4477a456b428f2f77f25~mv2.jpg"
-            },
-            {
-              title: "test product 1",
-              imageUrl:
-                "https://static.wixstatic.com/media/3528b1_d61b1bfd441c4477a456b428f2f77f25~mv2.jpg/v1/fill/w_415,h_396,q_90/3528b1_d61b1bfd441c4477a456b428f2f77f25~mv2.jpg"
-            },
-            {
-              title: "test product 1",
-              imageUrl:
-                "https://static.wixstatic.com/media/3528b1_d61b1bfd441c4477a456b428f2f77f25~mv2.jpg/v1/fill/w_415,h_396,q_90/3528b1_d61b1bfd441c4477a456b428f2f77f25~mv2.jpg"
-            },
-            {
-              title: "test product 1",
-              imageUrl:
-                "https://static.wixstatic.com/media/3528b1_d61b1bfd441c4477a456b428f2f77f25~mv2.jpg/v1/fill/w_415,h_396,q_90/3528b1_d61b1bfd441c4477a456b428f2f77f25~mv2.jpg"
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <LandingPage
+                headerRef={mainHeaderRef}
+                productsCardsRef={productsCardsGridRef}
+              />
             }
-          ]}
-        />
+          />
+          <Route path="/about" element={<AboutPage />} />
+        </Routes>
+
         <MainFooter />
       </div>
     </div>

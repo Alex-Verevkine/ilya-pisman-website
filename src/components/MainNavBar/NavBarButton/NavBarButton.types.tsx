@@ -1,5 +1,13 @@
-import { ReactNode } from "react";
+import { PropsWithChildren, FC, RefObject } from "react";
+import { FontSize } from "../../../types/typography.types";
 
-export interface NavBarButtonProps {
-  children: ReactNode;
-}
+export type NavBarButtonProps = PropsWithChildren<
+  FontSize & {
+    to: string;
+    scrollToRef?: RefObject<HTMLElement>;
+    color?: "white" | "black";
+    onClick?: () => any;
+  }
+>;
+
+export type NavBarButtonFC = FC<NavBarButtonProps>;
