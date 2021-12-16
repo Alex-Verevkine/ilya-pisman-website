@@ -15,7 +15,6 @@ const NavBarMobile: NavBarMobileFC = ({ options = [] }: NavBarMobileProps) => {
   });
 
   useEffect(() => {
-    debugger;
     const body = document.querySelector("body");
     if (body?.style) {
       body.style.overflow = isMenuOpen ? "hidden" : "auto";
@@ -27,6 +26,7 @@ const NavBarMobile: NavBarMobileFC = ({ options = [] }: NavBarMobileProps) => {
     <nav className={classNames}>
       <Hamburger
         size={24}
+        duration={0.8}
         rounded
         easing="ease-in-out"
         toggled={isMenuOpen}
