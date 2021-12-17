@@ -2,14 +2,11 @@
 
 .nav-bar-mobile {
   padding: 12px;
-  &-open {
-    [aria-label="nav-bar-mobile-hamburger"] {
-      z-index: 3;
-      & > div {
-        background: $white-base !important;
-      }
-    }
-  }
+  height: 72px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .nav-bar-mobile-floating-menu {

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import classnames from "classnames";
-import { Sling as Hamburger } from "hamburger-react";
 import { Transition } from "react-transition-group";
 import "./NavBarMobile.scss";
 import { NavBarButton } from "../NavBarButton";
 import { NavBarMobileFC } from "./NavBarMobile.types";
 import { NavBarMobileProps } from ".";
 import { Option } from "../MainNavBar.types";
+import { BurgerButton } from "../../BurgerButton";
 
 const NavBarMobile: NavBarMobileFC = ({ options = [] }: NavBarMobileProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,20 +20,13 @@ const NavBarMobile: NavBarMobileFC = ({ options = [] }: NavBarMobileProps) => {
       body.style.overflow = isMenuOpen ? "hidden" : "auto";
     }
   }, [isMenuOpen]);
-
   const handleCloseFLoatingMenu = () => setIsMenuOpen(false);
   return (
     <nav className={classNames}>
-      <Hamburger
-        size={24}
-        duration={0.8}
-        rounded
-        easing="ease-in-out"
-        toggled={isMenuOpen}
-        onToggle={setIsMenuOpen}
-        label="nav-bar-mobile-hamburger"
+      <BurgerButton
+        isOpen={isMenuOpen}
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
       />
-
       <Transition timeout={1000} appear={isMenuOpen} in={isMenuOpen}>
         {(state) => {
           return (
