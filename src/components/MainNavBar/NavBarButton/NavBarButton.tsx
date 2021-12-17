@@ -3,6 +3,7 @@ import { noop } from "lodash";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./NavBarButton.scss";
 import { NavBarButtonFC, NavBarButtonProps } from "./NavBarButton.types";
+import { scrollTo } from "../../../utils";
 
 const NavBarButton: NavBarButtonFC = ({
   to,
@@ -24,13 +25,16 @@ const NavBarButton: NavBarButtonFC = ({
         }
       });
     }
-
     setTimeout(() => {
-      scrollToRef?.current?.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest"
-      });
-    }, 0);
+      scrollTo({ ref: scrollToRef });
+    });
+
+    // setTimeout(() => {
+    //   scrollToRef?.current?.scrollIntoView({
+    //     behavior: "smooth",
+    //     block: "nearest"
+    //   });
+    // }, 0);
   };
   return (
     <div
