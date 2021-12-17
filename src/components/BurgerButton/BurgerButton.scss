@@ -1,3 +1,5 @@
+@use "../../variables.scss" as *;
+
 .burger-button {
   height: 3em;
   width: 3em;
@@ -37,7 +39,7 @@
       content: "";
       width: 100%;
       border-radius: 0.25em;
-      background-color: black;
+      background-color: $black-base;
       height: 0.25em;
       position: absolute;
       transform: rotate(0);
@@ -57,7 +59,7 @@
       &:before {
         transition: 0.2s background-color, 0.2s top, 0.2s left,
           0.2s transform 0.15s;
-        background-color: white;
+        background-color: $white-base;
       }
       & {
         background-color: transparent;

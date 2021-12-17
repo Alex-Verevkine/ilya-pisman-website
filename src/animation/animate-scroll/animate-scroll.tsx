@@ -1,19 +1,14 @@
-const pow = Math.pow;
+import { AnimateScrollProps } from ".";
 
 // The easing function that makes the scroll decelerate over time
-function easeOutQuart(x: number) {
-  return 1 - pow(1 - x, 4);
-}
+const easeOutQuart = (x: number) => 1 - Math.pow(1 - x, 4);
 
-export function animateScroll({
+export const animateScroll = ({
   targetPosition,
   initialPosition,
+  positionOffset = 0,
   duration
-}: {
-  targetPosition: number;
-  initialPosition: number;
-  duration: number;
-}) {
+}: AnimateScrollProps): void => {
   let start: number;
   let position;
   let animationFrame: number;
@@ -26,7 +21,8 @@ export function animateScroll({
     document.documentElement.scrollHeight -
     document.documentElement.clientHeight;
 
-  const amountOfPixelsToScroll = initialPosition + 72 - targetPosition;
+  const amountOfPixelsToScroll =
+    initialPosition + positionOffset - targetPosition;
 
   function step(timestamp: number) {
     if (start === undefined) {
@@ -64,4 +60,4 @@ export function animateScroll({
   }
 
   animationFrame = requestAnimationFrame(step);
-}
+};

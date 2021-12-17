@@ -26,7 +26,7 @@ const NavBarButton: NavBarButtonFC = ({
       });
     }
     setTimeout(() => {
-      scrollTo({ ref: scrollToRef });
+      scrollTo({ ref: scrollToRef, positionOffset: 71 });
     });
 
     // setTimeout(() => {

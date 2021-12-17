@@ -1,22 +1,19 @@
-import { RefObject } from "react";
-import { animateScroll } from "../animation";
+import { ScrollToProps } from ".";
+import { animateScroll } from "../../animation";
 
 const logError = () =>
   console.error(
     `Invalid element, are you sure you've provided element id or react ref?`
   );
 
-const getElementPosition = (element: HTMLElement) => element.offsetTop;
+const getElementPosition = (element: HTMLElement): number => element.offsetTop;
 
 export const scrollTo = ({
   id,
   ref,
-  duration = 3000
-}: {
-  id?: string;
-  ref?: RefObject<HTMLElement>;
-  duration?: number;
-}) => {
+  duration = 3000,
+  positionOffset = 0
+}: ScrollToProps): void => {
   // the position of the scroll bar before the user clicks the button
   const initialPosition = window.scrollY;
 
@@ -33,6 +30,7 @@ export const scrollTo = ({
   animateScroll({
     targetPosition: getElementPosition(element),
     initialPosition,
-    duration
+    duration,
+    positionOffset
   });
 };
