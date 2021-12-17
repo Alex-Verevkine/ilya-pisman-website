@@ -30,7 +30,7 @@ const NavBarButton: NavBarButtonFC = ({
         behavior: "smooth",
         block: "nearest"
       });
-    });
+    }, 0);
   };
   return (
     <div
