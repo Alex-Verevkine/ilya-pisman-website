@@ -1,10 +1,12 @@
 .product-cards-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
   padding: 96px 48px;
-  gap: 24px;
   max-width: 1500px;
   margin: 0 auto;
+  display: grid;
+  grid-gap: 24px;
+  grid-template-columns: repeat(auto-fill, 415px);
+  justify-content: center;
+  &-mobile {
+    grid-template-columns: repeat(auto-fill, 270px);
+  }
 }

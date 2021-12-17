@@ -28,13 +28,6 @@ const NavBarButton: NavBarButtonFC = ({
     setTimeout(() => {
       scrollTo({ ref: scrollToRef, positionOffset: 71 });
     });
-
-    // setTimeout(() => {
-    //   scrollToRef?.current?.scrollIntoView({
-    //     behavior: "smooth",
-    //     block: "nearest"
-    //   });
-    // }, 0);
   };
   return (
     <div
