@@ -4,9 +4,9 @@
   margin: 0 auto;
   display: grid;
   grid-gap: 24px;
-  grid-template-columns: repeat(auto-fill, 415px);
+  grid-template-columns: repeat(auto-fit, 415px);
   justify-content: center;
   &-mobile {
-    grid-template-columns: repeat(auto-fill, 270px);
+    grid-template-columns: repeat(auto-fit, 270px);
   }
 }

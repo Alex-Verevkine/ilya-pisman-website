@@ -1,12 +1,16 @@
 import React from "react";
+import "./services/firebase.service";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { ProjectsContextProvider } from "./context-providers";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ProjectsContextProvider>
+      <App />
+    </ProjectsContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
