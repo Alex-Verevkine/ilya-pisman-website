@@ -10,7 +10,7 @@ function App() {
   }, []);
   return (
     <div className="App">
-      {process.env.REACT_APP_TEST}
+      test {process.env.REACT_APP_TEST}
       <Router>
         <AppContainer />
       </Router>
