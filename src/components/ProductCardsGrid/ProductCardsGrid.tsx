@@ -7,7 +7,7 @@ import "./ProductCardsGrid.scss";
 import { ProjectsContext } from "../../context-providers";
 
 const ProductCardsGrid = forwardRef<HTMLDivElement, ProductsCardGridProps>(
-  ({ products = [] }: ProductsCardGridProps, ref) => {
+  (props, ref) => {
     const { projectsState } = useContext(ProjectsContext);
 
     const classNames = classnames("product-cards-grid", {
@@ -15,13 +15,16 @@ const ProductCardsGrid = forwardRef<HTMLDivElement, ProductsCardGridProps>(
     });
     return (
       <div className={classNames} ref={ref}>
-        {projectsState?.projects.map(({ title, imageUrl }, productIndex) => (
-          <ProductCard
-            title={title}
-            imageUrl={imageUrl}
-            key={`product-${productIndex}`}
-          />
-        ))}
+        {projectsState?.projects.map(
+          ({ title, imageUrl, name }, productIndex) => (
+            <ProductCard
+              title={title}
+              imageUrl={imageUrl}
+              redirectTo={name}
+              key={`product-${productIndex}`}
+            />
+          )
+        )}
       </div>
     );
   }

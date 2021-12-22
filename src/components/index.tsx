@@ -3,3 +3,8 @@ export * from "./AppContainer";
 export * from "./MainFooter";
 export * from "./MainHeader";
 export * from "./MainNavBar";
+export * from "./ProjectPage";
+export * from "./BurgerButton";
+export * from "./LandingPage";
+export * from "./ProductCard";
+export * from "./ProductCardsGrid";

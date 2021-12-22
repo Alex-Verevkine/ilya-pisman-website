@@ -5,9 +5,16 @@ import { ProjectsState } from "../../store";
 const projectReducer = (state: ProjectsState, action: ProjectAction) => {
   const { type, payload } = action;
   switch (type) {
+    case ProjectActionKind.GET_PROJECTS_STARTED:
+      return produce(state, (draft) => {
+        draft.isProjectsLoading = true;
+      });
     case ProjectActionKind.GET_PROJECTS:
       return produce(state, (draft) => {
-        draft.projects.push(...payload);
+        if (payload && Array.isArray(payload)) {
+          draft.projects.push(...payload);
+        }
+        draft.isProjectsLoading = false;
       });
     default:
       return state;

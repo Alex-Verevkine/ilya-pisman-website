@@ -1,5 +1,6 @@
 const projectsInitialState = {
-  projects: []
+  projects: [],
+  isProjectsLoading: false
 };
 
 export default projectsInitialState;

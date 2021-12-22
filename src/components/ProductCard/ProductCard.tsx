@@ -1,5 +1,6 @@
 import React from "react";
 import { random } from "lodash";
+import { useNavigate } from "react-router-dom";
 import { isDesktop } from "react-device-detect";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -12,7 +13,12 @@ import { useVisibleHook } from "../../hooks";
 import { ProductCardProps } from ".";
 import "./ProductCard.scss";
 
-const ProductCard = ({ title = "", imageUrl = "" }: ProductCardProps) => {
+const ProductCard = ({
+  title = "",
+  imageUrl = "",
+  redirectTo
+}: ProductCardProps) => {
+  const navigate = useNavigate();
   const controls = useAnimation();
   const [ref, inView] = useInView();
   const productCardClassNames = useCardClassNames({ isDesktop });
@@ -31,6 +37,10 @@ const ProductCard = ({ title = "", imageUrl = "" }: ProductCardProps) => {
     hidden: { opacity: 0, y: random(10, 100) }
   };
 
+  const handleCardClick = () => {
+    navigate(redirectTo);
+  };
+
   return (
     <motion.div
       ref={ref}
@@ -42,6 +52,7 @@ const ProductCard = ({ title = "", imageUrl = "" }: ProductCardProps) => {
         transition: { duration: 0.5 }
       }}
       initial="hidden"
+      onClick={handleCardClick}
     >
       <picture className={productCardPictureClassNames}>
         <img src={imageUrl} alt={`${title}`} />

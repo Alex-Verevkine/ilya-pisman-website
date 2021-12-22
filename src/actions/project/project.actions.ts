@@ -5,6 +5,10 @@ import { ProjectAction, ProjectActionKind } from "../../reducers";
 export const getProjects =
   (data: Array<ProjectModel>) => (dispatch: Dispatch<ProjectAction>) => {
     dispatch({
+      type: ProjectActionKind.GET_PROJECTS_STARTED,
+      payload: data
+    });
+    dispatch({
       type: ProjectActionKind.GET_PROJECTS,
       payload: data
     });

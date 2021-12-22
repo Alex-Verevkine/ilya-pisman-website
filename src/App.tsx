@@ -15,6 +15,7 @@ const App = () => {
 
   useEffect(() => {
     fetchProjects().then((data) => getProjects(data)(projectsDispatch));
+    return () => getProjects([])(projectsDispatch);
   }, [projectsDispatch]);
 
   return (

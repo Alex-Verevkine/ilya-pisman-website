@@ -1,6 +1,3 @@
 import { PropsWithChildren } from "react";
-import { ProductCardProps } from "../ProductCard";
 
-export type ProductsCardGridProps = PropsWithChildren<{
-  products: Array<ProductCardProps>;
-}>;
+export type ProductsCardGridProps = PropsWithChildren<{}>;
