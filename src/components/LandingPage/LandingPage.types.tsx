@@ -1,8 +1,8 @@
-import { PropsWithChildren, FC, RefObject } from "react";
+import { PropsWithChildren, FC } from "react";
 
 export type LandingPageProps = PropsWithChildren<{
-  headerRef?: RefObject<HTMLHeadElement>;
-  productsCardsRef?: RefObject<HTMLDivElement>;
+  headerRef?: string;
+  productsCardsRef?: string;
 }>;
 
 export type LandingPageFC = FC<LandingPageProps>;

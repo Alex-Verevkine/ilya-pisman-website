@@ -1,8 +1,8 @@
-import { FC, PropsWithChildren, RefObject } from "react";
+import { FC, PropsWithChildren } from "react";
 
 export type Option = {
   to: string;
-  scrollToRef?: RefObject<HTMLElement>;
+  scrollToRef?: string;
   text: string;
 };
 

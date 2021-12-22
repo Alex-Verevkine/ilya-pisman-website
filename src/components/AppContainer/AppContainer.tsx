@@ -1,16 +1,30 @@
-import { useRef, useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { AboutPage, MainFooter } from "..";
 import { LandingPage } from "../LandingPage";
 import { MainNavBar } from "../MainNavBar";
 import { ProjectPage } from "../ProjectPage";
-import { ProjectsContext } from "../../context-providers";
+import { AnchorScrollContext, ProjectsContext } from "../../context-providers";
 import "./AppContainer.scss";
+import { scrollTo } from "../../utils";
 
 const AppContainer = () => {
   const { projectsState } = useContext(ProjectsContext);
-  const mainHeaderRef = useRef<HTMLHeadElement>(null);
-  const productsCardsGridRef = useRef<HTMLDivElement>(null);
+  const { anchorScrollState } = useContext(AnchorScrollContext);
+  const mainHeaderRef = "main-header";
+  const productsCardsGridRef = "products-cards-grid";
+
+  useEffect(() => {
+    const scrollAnchor = anchorScrollState?.scrollAnchor;
+    if (scrollAnchor) {
+      debugger;
+      scrollTo({
+        id: scrollAnchor,
+        positionOffset: 71
+      });
+    }
+  }, [anchorScrollState?.scrollAnchor]);
+
   return (
     <div>
       <MainNavBar

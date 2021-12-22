@@ -8,8 +8,8 @@ const LandingPage: LandingPageFC = ({
 }: LandingPageProps) => {
   return (
     <div>
-      <MainHeader ref={headerRef} />
-      <ProductCardsGrid ref={productsCardsRef} />
+      <MainHeader id={headerRef} />
+      <ProductCardsGrid id={productsCardsRef} />
     </div>
   );
 };

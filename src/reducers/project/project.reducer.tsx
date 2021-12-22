@@ -12,7 +12,7 @@ const projectReducer = (state: ProjectsState, action: ProjectAction) => {
     case ProjectActionKind.GET_PROJECTS:
       return produce(state, (draft) => {
         if (payload && Array.isArray(payload)) {
-          draft.projects.push(...payload);
+          draft.projects = payload;
         }
         draft.isProjectsLoading = false;
       });

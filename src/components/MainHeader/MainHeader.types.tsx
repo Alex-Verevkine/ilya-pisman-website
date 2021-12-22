@@ -1,5 +1,5 @@
-import { PropsWithChildren, MutableRefObject } from "react";
+import { PropsWithChildren } from "react";
 
 export type MainHeaderProps = PropsWithChildren<{
-  ref?: MutableRefObject<HTMLElement>;
+  id?: string;
 }>;

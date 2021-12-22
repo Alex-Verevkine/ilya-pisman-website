@@ -1,9 +1,10 @@
-import React from "react";
+import { useContext } from "react";
 import { noop } from "lodash";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./NavBarButton.scss";
 import { NavBarButtonFC, NavBarButtonProps } from "./NavBarButton.types";
-import { scrollTo } from "../../../utils";
+import { setAnchorScroll } from "../../../actions";
+import { AnchorScrollContext } from "../../../context-providers";
 
 const NavBarButton: NavBarButtonFC = ({
   to,
@@ -13,21 +14,16 @@ const NavBarButton: NavBarButtonFC = ({
   onClick = noop,
   fontSize = "small"
 }: NavBarButtonProps) => {
+  const { anchorScrollDispatch } = useContext(AnchorScrollContext);
   const navigate = useNavigate();
   const location = useLocation();
 
   const handleCLick = () => {
     onClick();
     if (location.pathname !== to) {
-      navigate(to, {
-        state: {
-          scrollToRef
-        }
-      });
+      navigate(to);
     }
-    setTimeout(() => {
-      scrollTo({ ref: scrollToRef, positionOffset: 71 });
-    });
+    setAnchorScroll(scrollToRef)(anchorScrollDispatch);
   };
   return (
     <div

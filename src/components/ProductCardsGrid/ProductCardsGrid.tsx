@@ -7,14 +7,14 @@ import "./ProductCardsGrid.scss";
 import { ProjectsContext } from "../../context-providers";
 
 const ProductCardsGrid = forwardRef<HTMLDivElement, ProductsCardGridProps>(
-  (props, ref) => {
+  ({ id }, ref) => {
     const { projectsState } = useContext(ProjectsContext);
 
     const classNames = classnames("product-cards-grid", {
       "product-cards-grid-mobile": !isDesktop
     });
     return (
-      <div className={classNames} ref={ref}>
+      <div className={classNames} id={id} ref={ref}>
         {projectsState?.projects.map(
           ({ title, imageUrl, name }, productIndex) => (
             <ProductCard

@@ -1,10 +1,10 @@
-import { PropsWithChildren, FC, RefObject } from "react";
+import { PropsWithChildren, FC } from "react";
 import { FontSize } from "../../../types/typography.types";
 
 export type NavBarButtonProps = PropsWithChildren<
   FontSize & {
     to: string;
-    scrollToRef?: RefObject<HTMLElement>;
+    scrollToRef?: string;
     color?: "white" | "black";
     onClick?: () => any;
   }

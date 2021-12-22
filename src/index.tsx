@@ -4,13 +4,18 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { ProjectsContextProvider } from "./context-providers";
+import {
+  AnchorScrollContextProvider,
+  ProjectsContextProvider
+} from "./context-providers";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ProjectsContextProvider>
-      <App />
-    </ProjectsContextProvider>
+    <AnchorScrollContextProvider>
+      <ProjectsContextProvider>
+        <App />
+      </ProjectsContextProvider>
+    </AnchorScrollContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
