@@ -27,7 +27,12 @@ const NavBarMobile: NavBarMobileFC = ({ options = [] }: NavBarMobileProps) => {
         isOpen={isMenuOpen}
         onClick={() => setIsMenuOpen(!isMenuOpen)}
       />
-      <Transition timeout={1000} appear={isMenuOpen} in={isMenuOpen}>
+      <Transition
+        unmountOnExit
+        timeout={1000}
+        appear={isMenuOpen}
+        in={isMenuOpen}
+      >
         {(state) => {
           return (
             <div
