@@ -17,7 +17,6 @@ const AppContainer = () => {
   useEffect(() => {
     const scrollAnchor = anchorScrollState?.scrollAnchor;
     if (scrollAnchor) {
-      debugger;
       scrollTo({
         id: scrollAnchor,
         positionOffset: 71

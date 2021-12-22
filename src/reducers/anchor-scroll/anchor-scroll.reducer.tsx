@@ -10,7 +10,6 @@ const anchorScrollReducer = (
   switch (type) {
     case AnchorScrollActionKind.SET_SCROLL_ANCHOR:
       return produce(state, (draft) => {
-        debugger;
         draft.scrollAnchor = payload;
       });
     default:
